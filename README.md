@@ -46,7 +46,9 @@ Skills globais + **delta do repo** em `.cursor/skills/<skill>/GYMAPP.md` (e.g. `
 
 ## Sincronização
 
-Ao editar `~/.cursor/skills/` no dia a dia, o agente deve perguntar se a mudança também vai para **Garro-Skills**. Ver regra em projetos Garra: `.cursor/rules/garro-skills-sync.mdc`.
+Ao editar `~/.cursor/skills/` no dia a dia, o agente deve perguntar se a mudança também vai para **Garro-Skills**.
+
+Copie [`rules/garro-skills-sync.mdc`](rules/garro-skills-sync.mdc) para `.cursor/rules/` em cada projeto (já incluído no gym-app).
 
 Fluxo manual:
 

@@ -1,0 +1,23 @@
+---
+description: Ao editar skills, perguntar sync com repo Garro-Skills
+alwaysApply: true
+---
+
+# Garro-Skills (repo central de skills)
+
+Skills **globais** (repo-agnósticas):
+
+- Local: `~/.cursor/skills/`
+- GitHub: https://github.com/gabrielgarro/Garro-Skills
+
+Overrides de **projeto** (ex. `GYMAPP.md`, `guards-*.md`) ficam no repo do app — não no Garro-Skills.
+
+## Ao alterar qualquer skill
+
+Depois de editar `~/.cursor/skills/` ou skill global em `.cursor/skills/<nome>/SKILL.md`:
+
+1. **Pergunte (PT):** *"Quer que eu replique essa alteração no repo central **Garro-Skills** também?"*
+2. **Sim:** commit/push em `Garro-Skills` (espelho de `~/.cursor/skills/`, sem GYMAPP de projeto).
+3. **Não:** apenas local/projeto.
+
+Não sincronize GYMAPP/guards de projeto sem pedido explícito.
