@@ -46,9 +46,15 @@ Skills globais + **delta do repo** em `.cursor/skills/<skill>/GYMAPP.md` (e.g. `
 
 ## Sincronização
 
-Ao editar `~/.cursor/skills/` no dia a dia, o agente deve perguntar se a mudança também vai para **Garro-Skills**.
+Ao editar `~/.cursor/skills/`, o agente pergunta se replica em **Garro-Skills**. Copie [`rules/garro-skills-sync.mdc`](rules/garro-skills-sync.mdc) para `.cursor/rules/`.
 
-Copie [`rules/garro-skills-sync.mdc`](rules/garro-skills-sync.mdc) para `.cursor/rules/` em cada projeto (já incluído no gym-app).
+## Chat compacto (fase 2)
+
+- `skill-authoring/chat-output.md` — respostas curtas por padrão
+- `feedback-handler/triage-output-compact.md` — triagem sem template longo
+- `examples.md` esvaziados (não ler salvo pedido)
+
+User Rules: ver gym-app `Docs/CURSOR-USER-RULES.md`.
 
 Fluxo manual:
 

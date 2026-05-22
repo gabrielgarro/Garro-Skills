@@ -64,6 +64,10 @@ Read `GYMAPP.md` when present.
 | [ref.md](ref.md) | Phase N only |
 ```
 
+## Chat output
+
+Default: [chat-output.md](chat-output.md). Skills that produce long PT prose must point to a **compact** ref (e.g. `triage-output-compact.md`).
+
 ## Checklist before saving
 
 - [ ] No duplicate bullets (same rule twice)

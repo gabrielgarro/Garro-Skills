@@ -11,6 +11,8 @@ description: >-
 
 Read `GYMAPP.md` when present (Garra release gates).
 
+**Chat:** PT summary ≤8 bullets; never paste full draft in chat ([chat-output.md](../skill-authoring/chat-output.md)).
+
 ## Hard rules
 
 1. No `Docs/SPEC.md` edits before draft approval.

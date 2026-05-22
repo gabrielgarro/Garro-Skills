@@ -12,9 +12,13 @@ Product feedback in chat → classify → issues → user picks priorities → S
 
 Read `GYMAPP.md` when present (Garra: issues, backlog sync, duplicate `[Fxx]`).
 
+## Chat (default)
+
+Terse: [chat-output.md](../skill-authoring/chat-output.md) + [triage-output-compact.md](triage-output-compact.md). Full template only on request.
+
 ## Hard rules
 
-1. Interview **PT**; approaches **PT**.
+1. Interview **PT**; approaches **PT** (compact A/B/C in chat).
 2. **`new-feature-sdd`** owns SPEC/draft/implementation — never direct implementation.
 3. **1–2 questions/round**; one issue per **problem** (`P01`, `P02`…).
 4. Handoff only after issues exist + user selected P1/P2/P3 via `AskQuestion`.
@@ -45,7 +49,7 @@ Table **Problema ID | Origem | Tipo | Resumo** mandatory before Phase 3.
 
 ## Phase 4 — Approaches
 
-[triage-output-template.md](triage-output-template.md) per problem: A/B/C + **Recomendação** + **Rota** (`→ new-feature-sdd` | `→ aguardar` | `→ wont_fix`).
+[triage-output-compact.md](triage-output-compact.md) in chat; [triage-output-template.md](triage-output-template.md) only if user wants full prose.
 
 **P1** blocks main flow / many users; **P2** high + workaround; **P3** polish.
 
@@ -69,9 +73,6 @@ Per selected problem — template in [triage-output-template.md](triage-output-t
 |------|------|
 | [discovery-questions.md](discovery-questions.md) | Phase 3 |
 | [triage-output-template.md](triage-output-template.md) | Phase 4–7 |
-| [examples.md](examples.md) | User asks for example only |
+| [triage-output-compact.md](triage-output-compact.md) | Phase 4–7 chat default |
 | `GYMAPP.md` | Phase 5+ Garra |
 
-## Finish checklist
-
-Intake → decompose → approaches → P* → issues table → AskQuestion → handoff selected only → prompt SDD.

@@ -65,7 +65,7 @@ Extract: `NN`, slug, story prefix, routes, paths.
 
 ## Phase 4 — Deliver
 
-`git add` `e2e/`, `scripts/e2e-affected.mjs`, `playwright.config.ts`, `.env.e2e.example` if touched → commit → push → report paths, tags, CI job `e2e`.
+`git add` `e2e/`, … → commit → push. Close: paths, tags, pass/fail — no guardrail essay ([chat-output.md](../skill-authoring/chat-output.md)).
 
 ## Additional resources
 

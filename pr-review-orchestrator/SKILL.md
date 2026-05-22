@@ -54,7 +54,7 @@ Handoff: PR metadata, files, diff, review-contract.
 
 ## Phase 5 — Close (PT)
 
-PR link; table dimension × counts; Critical/High; next: fix, re-review, `babysit`.
+≤6 lines: PR link; table `dimension | posted | top severity`; Critical/High one-liners; next step. No paste findings JSON ([chat-output.md](../skill-authoring/chat-output.md)).
 
 ## Env
 
