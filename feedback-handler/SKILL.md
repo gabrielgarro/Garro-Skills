@@ -1,14 +1,14 @@
 ---
 name: feedback-handler
 description: >-
-  Triages feedback into GitHub issues (bug/melhoria + P1-P3), three approaches PT,
-  hands off to new-feature-sdd. Never implements code. Triggers: triar feedback,
+  Triages feedback into GitHub issues (bug/melhoria/epic + P1-P3). Epics route to
+  feature-discovery; fixes to SDD/impl. Never implements code. Triggers: triar feedback,
   processar feedbacks, pasted admin/user feedback.
 ---
 
 # Feedback Handler
 
-Product feedback in chat → classify → issues → user picks priorities → SDD handoff. No code, no SPEC/draft edits.
+Product feedback in chat → classify → issues → user picks priorities → handoff (discovery or SDD). No code, no SPEC/draft edits.
 
 Read `GYMAPP.md` when present (Garra: issues, backlog sync, duplicate `[Fxx]`).
 
@@ -19,7 +19,7 @@ Terse: [chat-output.md](../skill-authoring/chat-output.md) + [triage-output-comp
 ## Hard rules
 
 1. Interview **PT**; approaches **PT** (compact A/B/C in chat).
-2. **`new-feature-sdd`** owns SPEC/draft/implementation — never direct implementation.
+2. **`new-feature-sdd`** owns SPEC merge + implementation; **`feature-discovery`** owns epics before SDD — never direct implementation here.
 3. **1–2 questions/round**; one issue per **problem** (`P01`, `P02`…).
 4. Handoff only after issues exist + user selected P1/P2/P3 via `AskQuestion`.
 5. Labels: `bug`|`melhoria` + `P1`|`P2`|`P3` (not `P0`, not `priority:P1`, not English `improvement`).
@@ -39,9 +39,13 @@ Fields: `id`, `raw`, `type_hint`, `source`. N>5 → cluster + one priority quest
 
 ## Phase 2 — Classify + decompose
 
-Classes: `bug`, `improvement`, `new_feature`, `ux_copy`, `tech_debt`, `duplicate` (no issue), `needs_info`.
+Classes: `bug`, `improvement`, `new_feature`, `ux_copy`, `tech_debt`, `epic`, `duplicate` (no issue), `needs_info`.
 
-Table **Problema ID | Origem | Tipo | Resumo** mandatory before Phase 3.
+**Epic** (mark for discovery): pivot de produto, >~1 sprint, novo domínio, ou melhoria grande sem repro claro. Issue: título `[Fxx] Epic: …`, labels `type:epic`, `route:discovery`, `phase:*`. **Não** misturar vários épicos numa issue.
+
+**Bug / melhoria pequena:** issue normal (`type:bug` | `type:enhancement`), rota implementação direta após priorização.
+
+Table **Problema ID | Origem | Tipo | Rota | Resumo** mandatory before Phase 3 (`Rota` = `fix` | `discovery` | `SDD`).
 
 ## Phase 3 — Interview
 
@@ -55,8 +59,8 @@ Table **Problema ID | Origem | Tipo | Resumo** mandatory before Phase 3.
 
 ## Phase 5 — Issues
 
-- Existing `[Fxx]`: **GYMAPP.md § Issue já registrada** + `feedback-handler-duplicates.mdc` — comment, bump priority, no duplicate.
-- New: `scripts/feedback-issue-body.template.md` → `gh issue create --title "[P01] …" --label "bug,P1,feedback-triage"`.
+- Existing `[Fxx]`: **GYMAPP.md § Issue já registrada** + project duplicate rule — comment, bump priority, no duplicate.
+- New: `gh issue create` with body template (project may use `scripts/create-feedback-issues.mjs`).
 - Garra: `node scripts/sync-feedback-backlog.mjs` (never hand-edit backlog).
 
 ## Phase 6 — Selection
@@ -65,7 +69,13 @@ Ask which P1/P2/P3 to attack now; others stay open without handoff.
 
 ## Phase 7 — Handoff
 
-Per selected problem — template in [triage-output-template.md](triage-output-template.md). Prompt: *"vamos começar uma nova feature: &lt;slug&gt;"*.
+Per selected problem — [triage-output-template.md](triage-output-template.md).
+
+| Rota | Prompt |
+|------|--------|
+| `discovery` | *"vamos fazer discovery: &lt;slug&gt;"* → **`feature-discovery`** (epic `Fxx`) |
+| `SDD` | *"vamos começar uma nova feature: &lt;slug&gt;"* → **`new-feature-sdd`** (melhoria média já escopada) |
+| `fix` | Chat novo + `@arquivos` + `branch-first` (bug/P1 sem draft) |
 
 ## Resources
 
@@ -74,5 +84,5 @@ Per selected problem — template in [triage-output-template.md](triage-output-t
 | [discovery-questions.md](discovery-questions.md) | Phase 3 |
 | [triage-output-template.md](triage-output-template.md) | Phase 4–7 |
 | [triage-output-compact.md](triage-output-compact.md) | Phase 4–7 chat default |
-| `GYMAPP.md` | Phase 5+ Garra |
-
+| `GYMAPP.md` (repo app) | Phase 5+ Garra |
+| `feature-discovery` skill | Phase 7 `discovery` only |

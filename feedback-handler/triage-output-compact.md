@@ -7,13 +7,13 @@ Use in chat unless user asks for full [triage-output-template.md](triage-output-
 ```markdown
 ### P01 [bug|P1] — resumo 1 linha
 - **A:** … | **B:** … ★ | **C:** …
-- **Rota:** → SDD | aguardar | wont_fix
+- **Rota:** fix | discovery | SDD
 ```
 
 ## Tables only
 
-| Problema | Tipo | P* | Issue |
-|----------|------|-----|-------|
+| Problema | Tipo | P* | Rota | Issue |
+|----------|------|-----|------|-------|
 
 ## Handoff (selected only, one block)
 

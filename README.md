@@ -32,7 +32,8 @@ Cada subpasta é uma skill (`SKILL.md` + refs opcionais):
 |-------|-----|
 | `skill-authoring` | Criar/editar skills com budget de tokens |
 | `new-feature-sdd` | SDD: draft → SPEC → implement → E2E |
-| `feedback-handler` | Triagem de feedback → issues → SDD |
+| `feedback-handler` | Triagem de feedback → issues → fix / discovery / SDD |
+| `feature-discovery` | Discovery de épicos → draft → handoff SDD |
 | `playwright-e2e-from-plan` | E2E a partir do Test plan |
 | `pr-review-orchestrator` | Review multi-dimensão em PRs |
 | `pentest-pr-reviewer` | Segurança em PRs |
@@ -51,7 +52,8 @@ Ao editar `~/.cursor/skills/`, o agente pergunta se replica em **Garro-Skills**.
 ## Chat compacto (fase 2)
 
 - `skill-authoring/chat-output.md` — respostas curtas por padrão
-- `feedback-handler/triage-output-compact.md` — triagem sem template longo
+- `feedback-handler/triage-output-compact.md` — triagem sem template longo (coluna **Rota**)
+- `feature-discovery/SKILL.md` — épicos `type:epic` + `route:discovery`
 - `examples.md` esvaziados (não ler salvo pedido)
 
 User Rules: ver gym-app `Docs/CURSOR-USER-RULES.md`.
