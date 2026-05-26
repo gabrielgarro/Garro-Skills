@@ -59,9 +59,10 @@ Extract: `NN`, slug, story prefix, routes, paths.
 1. Re-read relevant `guards-*.md`.
 2. Specs + PO + tags; update shared PO + `sharedPageObjects` if copy/layout shared; `rg` removed strings in `e2e/`.
 3. `skipIfNoAuth()` in auth suites.
-4. `supabase/functions/gym-api` changes → CI deploy before E2E (see guards-history-api).
+4. `supabase/functions/gym-api` changes → CI deploy before E2E; **do not** change Supabase JS import style unless intentional; verify team Vercel preview origins match CORS patterns (see guards-history-api).
 5. `npm run test:e2e:plan` → check `collateralTags`; then `test:e2e:affected`.
-6. Flakes: `toBeEnabled` / `expect.poll` — disabled run CTA → `sets: 0` or stale session, not longer timeout alone.
+6. Flakes: `toBeEnabled` / `expect.poll` — disabled run CTA → `sets: 0` or stale session, not longer timeout alone. Nav flake → `waitForAuthenticatedShell`, never bare `.waitFor()` on bottom nav. **Rest phase:** footer label **Iniciar próxima série** — `waitForRunReady` must use `primaryFooterCta()`; multi-set loops need `advancePastRest()` + short rest in seed (`sets: 1`, `restSeconds: 15`), not default 60s×N.
+7. **Negative assertions:** on async pages (detail, run footer), never rely on `toHaveCount(0)` alone while skeleton/loading — wait for stable content (`waitForWorkoutDetailReady`, section copy, footer CTA) then assert the expected state (F57 / PR #156; see `guards-core.md` **Workout detail**).
 
 ## Phase 4 — Deliver
 
